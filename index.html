@@ -13,10 +13,15 @@
   <main class="game-container">
     <h1>Identity Game</h1>
     <p class="subtitle">A game that tries to guess who you are, with the help of AI.</p>
+    <!-- Intro screen -->
+    <div id="intro-screen">
+      <p>Welcome, cosmic traveler! Ready to discover your true self?</p>
+      <button id="start-btn">Start Game</button>
+    </div>
     <!-- Where questions will appear -->
-    <div id="question-container"></div>
+    <div id="question-container" class="hidden"></div>
     <!-- Where answer input will appear -->
-    <div id="answer-container"></div>
+    <div id="answer-container" class="hidden"></div>
     <!-- Next button for progressing through questions -->
     <button id="next-btn" class="hidden">Next</button>
     <!-- Where the result will be shown -->
