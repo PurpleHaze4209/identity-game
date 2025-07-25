@@ -1,8 +1,7 @@
 /*
-  main.css - Futuristic, astronomical theme for Identity Game
-  Identity Game Stylesheet
-  -----------------------
-  Futuristic, astronomical theme with blue, purple, and yellow accents
+  main.css - Sharp Futuristic Theme for Identity Game
+  -----------------------------------------------
+  Neon blue, purple, and yellow accents, glassmorphism, smooth transitions
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
@@ -10,94 +9,166 @@
 body {
   margin: 0;
   font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, #1a237e 0%, #512da8 100%);
+  background: linear-gradient(120deg, #0f2027 0%, #2c5364 100%);
   color: #fff;
   min-height: 100vh;
   overflow-x: hidden;
+  position: relative;
 }
 
-/* Decorative star background overlay */
+/* Animated star background */
 .star-bg {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
   pointer-events: none;
   z-index: 0;
   background: transparent;
+  animation: twinkle 8s linear infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
 }
 
-/* Main game container styling */
+/* Glassmorphism main container */
 .game-container {
   position: relative;
   z-index: 1;
-  max-width: 500px;
-  margin: 5vh auto;
-  background: rgba(30, 30, 60, 0.85);
-  border-radius: 24px;
-  box-shadow: 0 0 40px 10px #311b92cc;
+  max-width: 480px;
+  margin: 6vh auto;
+  background: rgba(30, 30, 60, 0.7);
+  border-radius: 2rem;
+  box-shadow: 0 8px 40px 0 #00e5ff55, 0 1.5px 0 #ffd600;
   padding: 2.5rem 2rem 2rem 2rem;
-  border: 2px solid #ffd600;
+  border: 2.5px solid #ffd600;
+  backdrop-filter: blur(8px) saturate(1.2);
+  transition: box-shadow 0.3s;
+}
+.game-container:hover {
+  box-shadow: 0 0 60px 10px #7c4dff99, 0 1.5px 0 #ffd600;
 }
 
 h1 {
-  font-size: 2.5rem;
-  color: #7c4dff;
-  letter-spacing: 2px;
-  text-shadow: 0 0 12px #ffd600, 0 0 24px #00e5ff;
+  font-size: 2.7rem;
+  color: #00e5ff;
+  letter-spacing: 2.5px;
+  text-shadow: 0 0 18px #ffd600, 0 0 32px #00e5ff;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .subtitle {
   color: #ffd600;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
+  font-size: 1.15rem;
+  margin-bottom: 2.2rem;
   text-align: center;
+  text-shadow: 0 0 8px #7c4dff;
+}
+
+#intro-screen p {
+  font-size: 1.15rem;
+  color: #fffde7;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 #question-container {
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  margin-bottom: 1.2rem;
   color: #fffde7;
+  text-align: center;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 0.2rem;
+  border-bottom: 1.5px solid #00e5ff44;
 }
 
-#answer-container input {
-  width: 100%;
-  padding: 0.7rem;
-  border-radius: 8px;
-  border: 1px solid #7c4dff;
-  background: #21214a;
+#answer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+#answer-container input,
+#answer-container select {
+  width: 90%;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border: 1.5px solid #7c4dff;
+  background: rgba(33, 33, 74, 0.95);
   color: #ffd600;
   font-size: 1.1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.7rem;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 8px #00e5ff33;
+}
+#answer-container input:focus,
+#answer-container select:focus {
+  border: 1.5px solid #00e5ff;
+  box-shadow: 0 0 16px #00e5ff77;
+}
+#answer-container label {
+  color: #ffd600;
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+  cursor: pointer;
+  user-select: none;
+}
+#answer-container input[type="radio"] {
+  accent-color: #00e5ff;
+  margin-right: 0.4em;
 }
 
-#next-btn {
+#game-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+#game-controls button {
   background: linear-gradient(90deg, #7c4dff 0%, #00e5ff 100%);
   color: #ffd600;
   border: none;
-  border-radius: 8px;
-  padding: 0.8rem 2rem;
+  border-radius: 10px;
+  padding: 0.85rem 2.2rem;
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 0 10px #00e5ff;
-  transition: background 0.3s, color 0.3s;
+  box-shadow: 0 0 12px #00e5ff77;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
 }
-#next-btn:hover {
+#game-controls button:hover {
   background: linear-gradient(90deg, #00e5ff 0%, #7c4dff 100%);
   color: #fff;
+  transform: translateY(-2px) scale(1.04);
 }
 
 #result {
-  margin-top: 2rem;
-  font-size: 1.3rem;
+  margin-top: 2.2rem;
+  font-size: 1.25rem;
   color: #ffd600;
   text-shadow: 0 0 8px #7c4dff;
+  background: rgba(30, 30, 60, 0.85);
+  border-radius: 1.2rem;
+  padding: 1.5rem 1.2rem;
+  box-shadow: 0 0 24px #00e5ff44;
+  border: 1.5px solid #00e5ff;
+  text-align: left;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 1s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .hidden {
   display: none;
 }
 
-/* Astronomical/futuristic accent overlay */
+/* Futuristic accent overlay */
 body::before {
   content: '';
   position: fixed;
@@ -106,7 +177,7 @@ body::before {
   width: 100vw;
   height: 100vh;
   background: url('https://www.transparenttextures.com/patterns/stardust.png');
-  opacity: 0.15;
+  opacity: 0.12;
   z-index: 0;
   pointer-events: none;
 }
