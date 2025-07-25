@@ -1,6 +1,5 @@
 /*
   main.css - Futuristic, astronomical theme for Identity Game
-/*
   Identity Game Stylesheet
   -----------------------
   Futuristic, astronomical theme with blue, purple, and yellow accents
@@ -102,12 +101,11 @@ h1 {
 body::before {
   content: '';
   position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: url('https://www.transparenttextures.com/patterns/stardust.png');
-  opacity: 0.15;
-  z-index: 0;
-  pointer-events: none;
-}
   opacity: 0.15;
   z-index: 0;
   pointer-events: none;
